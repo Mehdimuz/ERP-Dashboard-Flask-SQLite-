@@ -76,6 +76,17 @@ erp-web/
 
 ---
 
+## 🧠 Next Milestones
+ Add authentication (Flask-Login)
+
+ PDF invoice download support
+
+ Auto-purchase on low inventory
+
+ Search & filtering in dashboard
+ 
+---
+
 ## 🧪 Sample JSON for Testing
 
 ```json
@@ -98,12 +109,5 @@ POST /inventory
 }
 
 
-🧠 Next Milestones
- Add authentication (Flask-Login)
 
- PDF invoice download support
-
- Auto-purchase on low inventory
-
- Search & filtering in dashboard
 
