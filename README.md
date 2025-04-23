@@ -1,10 +1,19 @@
 # 🧾 ERP Dashboard (Flask + SQLite)
 
 A lightweight, full-featured Enterprise Resource Planning (ERP) system built using **Python Flask** and **SQLite**. This ERP system provides end-to-end management for inventory, products, customers, sales, suppliers, and invoices — perfect for small businesses or as a portfolio project.
+👉 [Check out the live web app](https://erp-web-kf3r.onrender.com)
 
 ![ERP Dashboard Screenshot](./dashboard.png)
 
 ---
+
+## 📦 Project Overview
+
+A full-stack ERP dashboard built with Flask and SQLite, supporting:
+- Inventory management
+- Sales records
+- Supplier restocking automation
+- Dashboard UI with Bootstrap
 
 ## 🚀 Features
 
@@ -16,14 +25,6 @@ A lightweight, full-featured Enterprise Resource Planning (ERP) system built usi
 - 📊 **Dashboard Analytics** — Track sales trends and inventory breakdown.
 - 🔄 **REST API** — JSON endpoints for external use or integration.
 - 🖥️ **Responsive UI** — Built using Bootstrap 5.
-
----
-
-## 🖼️ Screenshots
-
-<img src="screenshots/dashboard.png" width="800"/>
-<img src="screenshots/customers.png" width="800"/>
-<img src="screenshots/sales.png" width="800"/>
 
 ---
 
@@ -52,6 +53,11 @@ erp-web/
 - **Frontend:** HTML, Bootstrap 5, Jinja2
 - **Database:** SQLite
 - **Dev Tools:** Flask-Migrate, Postman, VSCode
+- - Flask + Jinja2
+- SQLAlchemy ORM
+- SQLite3
+- Gunicorn (Production Server)
+- Render (Hosting)
 
 ---
 
