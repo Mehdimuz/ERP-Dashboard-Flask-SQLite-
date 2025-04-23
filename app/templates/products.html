@@ -1,0 +1,24 @@
+<!-- app/templates/products.html -->
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Product List</h2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Category</th><th>Unit Price</th><th>Supplier ID</th><th>Stock Qty</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.product_id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>${{ product.unit_price }}</td>
+      <td>{{ product.supplier_id }}</td>
+      <td>{{ product.stock_qty }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

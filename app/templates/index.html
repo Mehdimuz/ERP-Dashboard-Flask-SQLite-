@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Welcome to the ERP Dashboard</h2>
+
+    <div class="row text-center">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">🛒 Sales Orders</h5>
+                    <p class="card-text display-6">{{ total_sales }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">📦 Products</h5>
+                    <p class="card-text display-6">{{ total_products }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">👥 Customers</h5>
+                    <p class="card-text display-6">{{ total_customers }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">🧾 Invoices</h5>
+                    <p class="card-text display-6">{{ total_invoices }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Chart Section -->
+    <hr class="my-5">
+    <h3 class="text-center mb-4">📊 Monthly Sales Trend</h3>
+    <canvas id="salesChart" height="100"></canvas>
+
+    <!-- Inventory Pie Chart Section -->
+    <hr class="my-5">
+    <h3 class="text-center mb-4">📦 Inventory Breakdown by Category</h3>
+    <div class="d-flex justify-content-center">
+        <canvas id="inventoryPieChart" style="width: 300px; height: 300px;"></canvas>
+    </div>
+
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesData = {{ monthly_sales | tojson }};
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                ],
+                datasets: [{
+                    label: 'Sales Orders',
+                    data: salesData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        // 👇 Inventory Pie Chart Code Below 👇
+        const inventoryLabels = {{ inventory_labels | tojson }};
+        const inventoryData = {{ inventory_data | tojson }};
+
+        new Chart(document.getElementById('inventoryPieChart'), {
+            type: 'pie',
+            data: {
+                labels: inventoryLabels,
+                datasets: [{
+                    data: inventoryData,
+                    backgroundColor: [
+                        '#4dc9f6', '#f67019', '#f53794', '#537bc4',
+                        '#acc236', '#166a8f', '#00a950', '#58595b'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+    {% endblock %}

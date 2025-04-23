@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>Add a New Sale</h3>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="product_id" class="form-label">Product ID</label>
+      <input type="text" class="form-control" name="product_id" required>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input type="number" class="form-control" name="quantity" required>
+    </div>
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" class="form-control" name="date" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Sale</button>
+  </form>
+</div>
+{% endblock %}

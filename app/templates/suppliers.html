@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Suppliers</h2>
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Supplier ID</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in suppliers %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.supplier_id }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.contact }}</td>
+      <td>{{ s.address }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="alert alert-success">
+    <h4>✅ Sale Created Successfully!</h4>
+    <p>Product ID: {{ sale.product_id }}</p>
+    <p>Quantity: {{ sale.quantity }}</p>
+    <p>Date: {{ sale.date }}</p>
+    <a href="/" class="btn btn-outline-primary mt-3">Back to Dashboard</a>
+  </div>
+</div>
+{% endblock %}
